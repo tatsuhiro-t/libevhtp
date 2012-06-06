@@ -970,6 +970,9 @@ htparser_run(htparser * p, htparse_hooks * hooks, const char * data, size_t len)
                                                (&p->buf[p->buf_idx] - p->path_offset));
                         }
 
+                        r2 = hook_uri_run(p, hooks, p->path_offset,
+                                          (&p->buf[p->buf_idx] - p->path_offset));
+
                         p->buf_idx = 0;
                         p->state   = s_http_09;
 
